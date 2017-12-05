@@ -1,0 +1,3 @@
+[submodule "reactnd-project-readable-starter"]
+	path = reactnd-project-readable-starter
+	url = https://github.com/udacity/reactnd-project-readable-starter.git
