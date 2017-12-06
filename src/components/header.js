@@ -9,9 +9,9 @@ class Header extends Component {
     render() {
         const {categories} = this.props
         return (
-            <Navbar>
+            <Navbar brand={"My-Readable"}>
                 {categories.map(category => (
-                    <NavItem key={category.path} href={category.path}>{category.name}</NavItem>
+                    <NavItem key={category.path} href={`/category/${category.path}`}>{category.name}</NavItem>
                 ))}
             </Navbar>
         );
