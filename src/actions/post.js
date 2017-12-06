@@ -53,7 +53,7 @@ export const getPost = id => dispatch =>  {
 }
 
 export const voteUpPost = id => dispatch => {
-  API.votePost({id, vote: 'upVote'})
+  API.votePost({id, vote: 1})
     .then( () => {
       return dispatch({
         type: VOTE_POST,
@@ -63,7 +63,7 @@ export const voteUpPost = id => dispatch => {
 }
 
 export const voteDownPost = id => dispatch => {
-  API.votePost({id, vote: 'downVote'})
+  API.votePost({id, vote: 0})
     .then( () => {
       return dispatch({
         type: VOTE_POST,
