@@ -8,6 +8,8 @@ export const VOTE_POST = "VOTE_POST"
 export const EDIT_POST = "EDIT_POST"
 export const DELETE_POST = "DELETE_POST"
 export const ADD_POST = "ADD_POST"
+export const SORT_BY_VOTE = "SORT_BY_VOTE"
+export const SORT_BY_DATE = "SORT_BY_DATE"
 
 
 export const getAllPosts = () => dispatch => {
@@ -41,7 +43,7 @@ export const getPost = id => dispatch =>  {
 }
 
 export const voteUpPost = id => dispatch => {
-  API.votePost({id, 'upVote'})
+  API.votePost({id, vote: 'upVote'})
     .then( () => {
       return dispatch({
         type: VOTE_POST,
@@ -51,7 +53,7 @@ export const voteUpPost = id => dispatch => {
 }
 
 export const voteDownPost = id => dispatch => {
-  API.votePost({id, 'downVote'})
+  API.votePost({id, vote: 'downVote'})
     .then( () => {
       return dispatch({
         type: VOTE_POST,
