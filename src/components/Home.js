@@ -2,9 +2,8 @@
  * Created by milad on 12/7/17.
  */
 import React, {Component} from 'react';
-import PropTypes from 'prop-types';
 import {connect} from "react-redux";
-import {getAllPosts, SORT_BY_DATE, SORT_BY_VOTE} from "../actions/post";
+import {getAllPosts, getAllPostsWithCategory, SORT_BY_DATE, SORT_BY_VOTE} from "../actions/post";
 import {getAllCategories} from "../actions/category";
 import {fetchComments} from "../actions/comment";
 import {Button, Col, Input, Row} from "react-materialize";
@@ -14,20 +13,28 @@ import Header from './header'
 
 class Home extends Component {
     componentWillMount(){
+        if(this.props.match.params.category === undefined){
+            this.props.getAllPosts()
+        }else {
+            console.log(this.props.match.params.category)
+            this.props.getPostsWithCategory(this.props.match.params.category);
+        }
         this.props.getAllCategories()
-        this.props.getAllPosts()
         this.props.getAllComments()
     }
+
 
 
     sortChange = (event, value) => {
         switch(value){
             case 'sort-by-time':
                 this.props.sortByDatePosts()
-                break;
+                break
             case 'sort-by-vote':
                 this.props.sortByVotePosts()
-                break;
+                break
+            default:
+                break
         }
     }
     render() {
@@ -55,7 +62,9 @@ class Home extends Component {
                     <Col m={8}>
                         <h5 className="card-panel">List Posts</h5>
                         {this.props.posts.map(post => post.deleted ?  null : (
-                            <Post title={post.title}
+                            <Post
+                                  key={post.id}
+                                  title={post.title}
                                   id={post.id}
                                   timestamp={post.timestamp}
                                   body={post.body} author={post.author} category={post.category}
@@ -68,9 +77,6 @@ class Home extends Component {
     }
 }
 
-Home.propTypes = {
-
-};
 
 function mapStateToProps(state) {
     return {
@@ -83,7 +89,8 @@ function mapDispatchToProps(dispatch) {
         getAllCategories: () => dispatch(getAllCategories()),
         getAllComments: () => dispatch(fetchComments()),
         sortByDatePosts : () => dispatch({type: SORT_BY_DATE}),
-        sortByVotePosts : () => dispatch({type: SORT_BY_VOTE})
+        sortByVotePosts : () => dispatch({type: SORT_BY_VOTE}),
+        getPostsWithCategory : (category) => dispatch(getAllPostsWithCategory(category))
     }
 }
 
