@@ -22,6 +22,16 @@ export const getAllPosts = () => dispatch => {
     })
 }
 
+export const addPost = ({title, body, author, category}) => (dispatch) => (
+    API.addPost({title, body, author, category})
+        .then((post) => {
+            return dispatch({
+                type: ADD_POST,
+                post
+            });
+        }
+    ));
+
 export const getAllPostsWithCategory = category => dispatch => {
   API.fetchPosts(category)
     .then(posts => {
