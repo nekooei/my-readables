@@ -8,7 +8,6 @@ import { Navbar, NavItem } from 'react-materialize'
 class Header extends Component {
     render() {
         const {categories} = this.props
-        console.log(categories)
         return (
             <Navbar>
                 {categories.map(category => (
