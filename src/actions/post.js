@@ -36,7 +36,7 @@ export const getAllPostsWithCategory = category => dispatch => {
   API.fetchPosts(category)
     .then(posts => {
       return dispatch({
-        action: FETCH_ALL_POSTS_WITH_CATEGORY,
+        type: FETCH_ALL_POSTS_WITH_CATEGORY,
         posts
       })
     })
