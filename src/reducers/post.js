@@ -2,6 +2,7 @@ import sortBy from 'sort-by'
 import {
     ADD_POST,
     FETCH_ALL_POSTS,
+    FETCH_ALL_POSTS_WITH_CATEGORY,
     EDIT_POST,
     DELETE_POST,
     SORT_BY_DATE,
@@ -19,6 +20,8 @@ export default (posts = initialPostState, action) => {
                 action.post
             ]
         case FETCH_ALL_POSTS:
+            return action.posts
+        case FETCH_ALL_POSTS_WITH_CATEGORY:
             return action.posts
         case DELETE_POST:
             return posts.filter(post => post.id !== action.id)
