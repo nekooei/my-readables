@@ -10,7 +10,7 @@ import {Link} from "react-router-dom";
 
 class Post extends Component {
     render() {
-        const {title, timestamp, body, author, category, voteScore, id} = this.props
+        const {title, timestamp, body, author, category, id} = this.props
         return (
             <Link to={`/post/${id}`}>
                 <Row className="card-panel hoverable">
