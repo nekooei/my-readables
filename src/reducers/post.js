@@ -6,7 +6,8 @@ import {
     EDIT_POST,
     DELETE_POST,
     SORT_BY_DATE,
-    SORT_BY_VOTE
+    SORT_BY_VOTE,
+    VOTE_POST
 } from '../actions/post'
 
 
@@ -30,6 +31,17 @@ export default (posts = initialPostState, action) => {
                 ...post,
                 ...action.post
             } : post)
+        case VOTE_POST:
+            return posts.map(post => {
+                if(post.id === action.id){
+                    if (action.vote === 1){
+                        post.voteScore++
+                    }else {
+                        post.voteScore--
+                    }
+                }
+                return post
+            })
         case SORT_BY_DATE:
             const sortedPostsByDate = [...posts]
             return sortedPostsByDate.sort(sortBy('-timestamp'))
