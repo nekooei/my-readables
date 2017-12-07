@@ -16,7 +16,6 @@ class Home extends Component {
         if(this.props.match.params.category === undefined){
             this.props.getAllPosts()
         }else {
-            console.log(this.props.match.params.category)
             this.props.getPostsWithCategory(this.props.match.params.category);
         }
         this.props.getAllCategories()
