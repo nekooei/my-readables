@@ -52,11 +52,14 @@ class PostDetail extends Component {
         }
     }
 
+    back = () => {
+        this.props.history.push('/')
+    }
+
     render() {
         const {title, body, author, category, timestamp, voteScore} = this.props.post
         return (
             <Row >
-                <Header/>
                 <Col m={4}>
 
                     <br/>
@@ -73,7 +76,9 @@ class PostDetail extends Component {
                         <Button className="green" icon='settings' onClick={this.editPost}/>
                     </Col>
 
-
+                    <Col m={12}>
+                        <Button className="green" icon='arrow_left' onClick={this.back}/>
+                    </Col>
 
 
                 </Col>
