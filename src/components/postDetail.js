@@ -36,7 +36,7 @@ class PostDetail extends Component {
     }
 
     editPost = () => {
-        this.props.history.push(`/post/${this.props.match.params.postId}/edit`)
+        this.props.history.push(`/edit/${this.props.match.params.postId}`)
     }
 
     saveComment = () => {

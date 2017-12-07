@@ -43,7 +43,7 @@ function mapStateToProps(state, ownProps) {
         return {
             ...current
         }
-    }, {}),
+    }, {})
     }
 }
 
