@@ -1,7 +1,7 @@
 /**
  * Created by milad on 12/6/17.
  */
-import {ADD_COMMENT, DELETE_COMMENT, FETCH_COMMENTS, UPDATE_COMMENT} from "../actions/comment";
+import {ADD_COMMENT, DELETE_COMMENT, FETCH_COMMENTS, UPDATE_COMMENT, FETCH_COMMENT} from "../actions/comment";
 
 const initialState = [];
 
@@ -10,6 +10,7 @@ export default (state = initialState, action) => {
         case FETCH_COMMENTS:
             return action.comments
         case ADD_COMMENT:
+        case FETCH_COMMENT:
             return [
                 ...state,
                 action.comment
