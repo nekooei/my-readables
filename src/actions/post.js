@@ -57,7 +57,8 @@ export const voteUpPost = id => dispatch => {
     .then( () => {
       return dispatch({
         type: VOTE_POST,
-        id
+        id,
+        vote: 1
       })
     })
 }
@@ -67,7 +68,8 @@ export const voteDownPost = id => dispatch => {
     .then( () => {
       return dispatch({
         type: VOTE_POST,
-        id
+        id,
+        vote: 0
       })
     })
 }
@@ -76,7 +78,7 @@ export const editPost = (id, title, body) => dispatch => {
   API.editPost({id, title, body})
     .then(post => {
       return dispatch({
-        action: EDIT_POST,
+        type: EDIT_POST,
         post,
         id
       })
@@ -88,7 +90,7 @@ export const deletePost = id => dispatch => {
   API.deletePost(id)
     .then( () => {
       return dispatch({
-        action: DELETE_POST,
+        type: DELETE_POST,
         id
       })
     })
