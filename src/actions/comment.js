@@ -11,8 +11,7 @@ export const fetchComments = (postId = null) => dispatch => (
         dispatch(
             {
                 type: FETCH_COMMENTS,
-                comments,
-                postId
+                comments
             }
         )
     ))
