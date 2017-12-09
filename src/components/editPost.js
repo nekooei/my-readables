@@ -6,7 +6,10 @@ import { getPost, editPost} from '../actions/post'
 import {Button, Input, Row} from "react-materialize";
 import {connect} from "react-redux";
 class EditPost extends Component {
-
+    constructor(props){
+      super(props)
+      this.props.getPost(this.props.match.params.postId)
+    }
 
     savePost = () => {
         if(this.newBody || this.newTitle){
@@ -24,7 +27,7 @@ class EditPost extends Component {
                 <Row>
                    <Input m={12} label="title" defaultValue={this.props.post.title}
                         onChange={(event, value) => this.newTitle = value}/>
-                    <Input m={12} label="body" defaultValue={this.props.post.title} type="textarea"
+                    <Input m={12} label="body" defaultValue={this.props.post.body}
                            onChange={(event, value) => this.newBody = value}/>
                     <Button onClick={this.savePost}>Save</Button>
                     <Button className="red" onClick={this.dismiss}>Cancel</Button>
@@ -53,4 +56,3 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditPost);
-
