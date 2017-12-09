@@ -62,10 +62,12 @@ class Home extends Component {
                         <h5 className="card-panel">List Posts</h5>
                         {this.props.posts.map(post => post.deleted ?  null : (
                             <Post
+                                  history={this.props.history}
                                   key={post.id}
                                   title={post.title}
                                   id={post.id}
                                   timestamp={post.timestamp}
+                                  commentCount={post.commentCount}
                                   body={post.body} author={post.author} category={post.category}
                                   voteScore={post.voteScore}/>
                         ))}
