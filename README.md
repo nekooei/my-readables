@@ -18,7 +18,7 @@ node server.js
 
 for running application run these commands
 ```
-npm isntall && npm start
+npm install && npm start
 ```
 
 
