@@ -4,7 +4,7 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 import {Button, Col, Icon, Row} from "react-materialize";
-import { voteComment, deleteComment, editComment} from '../actions/comment'
+import { voteComment, deleteComment} from '../actions/comment'
 import Moment from 'react-moment'
 import {connect} from "react-redux";
 
