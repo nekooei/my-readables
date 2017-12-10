@@ -17,7 +17,7 @@ class App extends Component {
                     <NewPost history={history}/>
                     )}/>
                 <Route exact path='/category/:category' component={Home}/>
-                <Route excat path='/post/:postId' component={PostDetail}/>
+                <Route exact path='/:category/:postId'component={PostDetail}/>
                 <Route excat path='/edit/:postId' component={EditPost}/>
                 <Route path='/comment/:commentId' component={CommentEdit}/>
             </Switch>

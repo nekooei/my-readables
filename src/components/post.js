@@ -34,7 +34,7 @@ class Post extends Component {
 
                 <Row className="card-panel hoverable">
                     <Col m={12}>
-                        <Link to={`/post/${id}`}>
+                        <Link to={`/${category}/${id}`}>
                           <h4>
                               {title}
                           </h4>
